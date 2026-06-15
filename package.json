@@ -1,0 +1,28 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Untangle Finances Backend",
+  "main": "entry.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --env-file=.env entry.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pratibha2901/Untangle-Finances.git"
+  },
+  "author": "Pratibha Mishra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pratibha2901/Untangle-Finances/issues"
+  },
+  "homepage": "https://github.com/pratibha2901/Untangle-Finances#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.2",
+    "jose": "^6.2.3",
+    "mongoose": "^9.6.3"
+  }
+}
