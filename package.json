@@ -20,6 +20,7 @@
   "homepage": "https://github.com/pratibha2901/Untangle-Finances#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "crypto": "^1.0.1",
     "express": "^5.2.1",
     "express-validator": "^7.3.2",
     "jose": "^6.2.3",
