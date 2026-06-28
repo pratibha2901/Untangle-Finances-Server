@@ -8,3 +8,4 @@ class RefreshTokenRepository {
         return RefreshToken.create(refreshTokenData);
     }
 }
+export default new RefreshTokenRepository();

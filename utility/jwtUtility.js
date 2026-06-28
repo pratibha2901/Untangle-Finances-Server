@@ -1,3 +1,5 @@
+import {SignJWT} from 'jose';
+
 const generateToken = async (user) => {
    const secretKey = new TextEncoder().encode(process.env.JWT_SECRET);
    const token =await new SignJWT({userId: user._id, email: user.email, participationType: user.participationType, familyRole: user.familyRole})
