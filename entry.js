@@ -1,5 +1,6 @@
-import https from 'node:https';
-const PORT = 7999;
-https.createServer((req, res) => {
-    
-}).listen(PORT,()=>{console.log(`server listening on port ${PORT}`)})
+import { errorMiddleware } from "./middlewares/errorMiddleware.js";
+import authRouter from "./routers/authRoutes.js";
+import express from "express";
+ const app = express();
+ app.use('/api/auth', authRouter);
+ app.use(errorMiddleware);

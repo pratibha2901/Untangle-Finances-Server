@@ -1,6 +1,7 @@
 import {SignJWT} from 'jose';
+import { jwtVerify } from 'jose';
 
-const generateToken = async (user) => {
+export const generateToken = async (user) => {
    const secretKey = new TextEncoder().encode(process.env.JWT_SECRET);
    const token =await new SignJWT({userId: user._id, email: user.email, participationType: user.participationType, familyRole: user.familyRole})
    .setProtectedHeader({alg:'HS256'})
@@ -9,7 +10,7 @@ const generateToken = async (user) => {
    .sign(secretKey);
     return token;
 }
-const generateRefreshToken = async (user) => {
+export const generateRefreshToken = async (user) => {
     const refreshSecret = new TextEncode().encode(process.env.REFRESH_SECRET);
     const refreshToken = await new SignJWT({userId: user._id, email: user.email})
     .setProtectedHeader({alg:'HS256'})
@@ -17,4 +18,9 @@ const generateRefreshToken = async (user) => {
     .setExpirationTime('1d')
     .sign(refreshSecret);
     return refreshToken;
+}
+export const verifyRefreshToken = async (user,refreshToken) =>{
+  const secret = new TextEncoder().encode(process.env.REFRESH_SECRET);
+  const {payload, protectedHeader} = await jwtVerify(refreshToken,secret);
+  return payload;
 }

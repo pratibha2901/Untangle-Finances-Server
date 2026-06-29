@@ -7,5 +7,8 @@ class RefreshTokenRepository {
     async create(refreshTokenData){
         return RefreshToken.create(refreshTokenData);
     }
+    async revoke(tokenId){
+        return RefreshToken.findByIdAndUpdate(tokenId,{isRevoked:true})
+    }
 }
 export default new RefreshTokenRepository();
